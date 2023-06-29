@@ -1,0 +1,20 @@
+---
+  - name: installing multiple pkgs
+    hosts: web
+    tasks:
+      - name: installing ftp pkg
+        dnf:
+          name: ftp
+          state: present
+      - name: installing nmap pkg
+        yum:
+          name: nmap
+          state: present
+      - name: installing yum-utils pkgs
+        dnf:
+          name: yum-utils
+          state: present
+      - name: installing git pkg
+        dnf:
+          name: git
+          state: present

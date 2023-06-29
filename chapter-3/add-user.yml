@@ -1,0 +1,16 @@
+--- # Playbook start here
+  - name: removing some users # Playbook headline
+    hosts: db # Targeted servers
+    tasks:
+      - name: removing tom user # task description
+        user: # Module
+          name: tom # arg1
+          comment: "Tom heather" # arg2
+          uid: 7500 # arg3
+          home: /home/tom # arg4
+          shell: /bin/sh # arg5
+          state: absent
+      - name: removing harry user
+        user:
+          name: harry
+          state: absent 

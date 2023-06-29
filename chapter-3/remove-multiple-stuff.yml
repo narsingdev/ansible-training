@@ -1,0 +1,15 @@
+---
+  - name: removing and configuring httpd server
+    hosts: web
+    tasks:
+      - name: removing httpd pkg
+        dnf:
+          name: httpd
+          state: absent
+  - name: removing and configuring mariadb server
+    hosts: db
+    tasks:
+      - name: installig mariadb-server pkg
+        dnf:
+          name: mariadb-server
+          state: absent

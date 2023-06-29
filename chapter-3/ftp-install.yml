@@ -1,0 +1,14 @@
+---
+  - name: testing verbosity 
+    hosts: db
+    become: true
+    remote_user: admin
+    tasks:
+      - name: installing ftp pkg
+        dnf:
+          name: ftp
+          state: present
+      - name: creating max user
+        user:
+          name: max
+          state: present

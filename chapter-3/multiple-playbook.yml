@@ -1,0 +1,30 @@
+---
+  - name: installing and configuring httpd server
+    hosts: web
+    tasks:
+      - name: installing httpd pkg
+        dnf:
+          name: httpd
+          state: present
+      - name: start and enable httpd service
+        service:
+          name: httpd
+          state: started
+          enabled: true
+      - name: creating sample web page
+        copy:
+          content: "<html> <body> <center> <h1> Welcome to Asnible Training </h1> </center> </body> </html>"
+          dest: /var/www/html/index.html
+  - name: installing and configuring mariadb server
+    hosts: db
+    tasks:
+      - name: installig mariadb-server pkg
+        dnf:
+          name: mariadb-server
+          state: present
+      - name: start and enable mariadb service
+        service:
+          name: mariadb
+          state: started
+          enabled: true
+
