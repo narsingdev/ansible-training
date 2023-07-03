@@ -1,0 +1,21 @@
+---
+  - name: testing force_handlers
+    hosts: web
+    force_handlers: yes
+    tasks:
+      - name: copying content
+        copy:
+          content: "Welcoem to Automation1\n"
+          dest: /var/www/html/index.html
+        notify:
+          - restart httpd
+      - name: installing git pkg
+        dnf:
+          name: gitt
+          state: present
+    handlers:
+      - name: restart httpd
+        service: 
+          name: httpd
+          state: restarted
+

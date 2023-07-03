@@ -1,0 +1,15 @@
+---
+  - name: testing block keyword
+    hosts: web
+    tasks:
+      - name: peroforming various tasks using block
+        block:
+          - name: creating finance group
+            group:
+              name: finance
+              state: present
+          - name: creating user tim
+            user:
+              name: tim
+              state: present
+        when: ansible_distribution == "RedHat"

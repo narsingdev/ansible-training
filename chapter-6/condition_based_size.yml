@@ -1,0 +1,12 @@
+---
+  - name: installing mariadb-server 
+    hosts: db
+    tasks:
+      - name: install mariadb-server pkg if >300 space available on / partition
+        dnf: 
+          name: mariadb-server
+          state: present
+        loop: "{{ ansible_mounts }}"
+        when: item.mount == "/" and item.size_available >300000000
+
+

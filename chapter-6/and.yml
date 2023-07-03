@@ -1,0 +1,10 @@
+---
+  - name: testing and
+    hosts: all
+    tasks:
+      - name: create a IT group if supported distro match
+        group:
+          name: IT
+          state: present
+        when: ansible_distribution_version == "9.2" and ansible_distribution == "RedHat" 
+

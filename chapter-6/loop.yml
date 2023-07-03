@@ -1,0 +1,14 @@
+---
+  - name: testing loop keyword
+    hosts: web
+    tasks:
+      - name: installing ftp, nmap, yum-utils and nfs-utils packages
+        dnf:
+          name: "{{ item }}"
+          state: present
+        loop:
+          - ftp
+          - nmap
+          - yum-utils
+          - nfs-utils
+  

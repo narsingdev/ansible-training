@@ -1,0 +1,17 @@
+---
+  - name: testing ignore_errors keyword
+    hosts: web
+    ignore_errors: yes
+    tasks:
+      - name: installing vsftpd pkg
+        dnf:
+          name: vsftpd
+          state: present
+      - name: installing nmap pkg
+        dnf:
+          name: nmaap
+          state: present
+      - name: installing yum-utils pkg
+        dnf:
+          name: yum-utils
+          state: present

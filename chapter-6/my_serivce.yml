@@ -1,0 +1,11 @@
+---
+  - name: testing 
+    hosts: all
+    vars:
+      my_service: httpd
+    tasks:
+      - name: installing {{ my_service }} if condition is true
+        dnf:
+          name: "{{ my_service }}"
+          state: present
+        when: my_service is defined

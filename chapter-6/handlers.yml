@@ -1,0 +1,24 @@
+---
+  - name: installing and configuring httpd server using handlers
+    hosts: web
+    tasks:
+      - name: installing httpd pkg
+        dnf:
+          name: httpd
+          state: present
+      - name: start and enable httpd service
+        service: 
+          name: httpd
+          state: started
+          enabled: true
+      - name: copying sample file in managed node
+        copy:
+          content: "Welcome to node1\n" 
+          dest: /var/www/html/index.html
+        notify:
+          - restart httpd 
+    handlers:
+      - name: restart httpd
+        service:
+          name: httpd
+          state: restarted

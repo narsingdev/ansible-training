@@ -1,0 +1,15 @@
+---
+  - name: installing and configuring mariadb server
+    hosts: db
+    vars_files:
+      - db_vars.yml
+    tasks:
+      - name: installing {{ db_pkg }} package
+        dnf:
+          name: "{{ db_pkg }}"
+          state: present
+      - name: start and enable {{ db_svc }} service
+        service:
+          name: "{{db_svc }}"
+          state: started
+          enabled: true 

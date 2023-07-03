@@ -1,0 +1,16 @@
+---
+  - name: testing supported distribution
+    hosts: all
+    vars:
+      supported_distro:
+        - CentOS
+        - RedHat
+        - Debian
+        - Fedora
+    tasks:
+      - name: create a sales group if supported distro match
+        group:
+          name: sales
+          state: present
+        when: ansible_distribution in supported_distro
+

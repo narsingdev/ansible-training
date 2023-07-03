@@ -1,0 +1,16 @@
+---
+  - name: installing some pkgs
+    hosts: db
+    vars:
+      mail_services:
+        - postfix
+        - sendmail
+        - dovecot
+    tasks:
+      - name: installing {{ mail_services }} packages
+        dnf:
+          name: "{{ item }}"
+          state: present
+        loop: "{{ mail_services }}"
+    
+

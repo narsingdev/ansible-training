@@ -1,0 +1,16 @@
+---
+  - name: Installing and configuring httpd server
+    hosts: web
+    vars:
+      ftp_pkg: httpd
+      ftp_svc: httpd
+      ftp_rule: http
+    tasks:
+      - name: installing {{ ftp_pkg }} package
+        dnf:
+          name: "{{ ftp_pkg }}"
+          state: present
+      - name: start and enable {{ ftp_svc }} service
+        service:
+          name: "{{ ftp_svc }}"
+          state: started

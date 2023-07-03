@@ -1,0 +1,9 @@
+---
+  - name: testing setup module
+    hosts: web
+    tasks:
+      - name: refering default fact
+        debug:
+          msg: >
+            Your system hostname is {{ ansible_fqdn }}
+    

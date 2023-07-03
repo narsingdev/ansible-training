@@ -1,0 +1,10 @@
+---
+  - name: testing or 
+    hosts: all
+    tasks:
+      - name: create a HR group if supported distro match
+        group:
+          name: HR
+          state: present
+        when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat" 
+

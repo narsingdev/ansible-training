@@ -1,0 +1,17 @@
+---
+  - name: Installing and configuring vsftpd server
+    hosts: db
+    gather_facts: yes
+    vars:
+      ftp_pkg: vsftpd
+      ftp_svc: vsftpd
+      ftp_rule: ftp
+    tasks:
+      - name: installing {{ ftp_pkg }} package
+        dnf:
+          name: "{{ ftp_pkg }}"
+          state: present
+      - name: start and enable {{ ftp_svc }} service
+        service:
+          name: "{{ ftp_svc }}"
+          state: started

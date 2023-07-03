@@ -1,0 +1,11 @@
+---
+  - name: creating user using vault 
+    hosts: all
+    vars_files:
+      - user_list.yml
+    tasks:
+      - name: creating {{ username }} user
+        user:
+          name: "{{ username }}"
+          password: "{{ pwdhash }}"
+          state: present
