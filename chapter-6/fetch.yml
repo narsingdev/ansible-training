@@ -1,0 +1,8 @@
+---
+  - name: testing fetch module
+    hosts: web
+    tasks:
+      - name: fetching test.txt file from managed node to control node
+        fetch:
+          src: /home/admin/hcl/test.txt
+          dest: /home/admin/project/

@@ -1,0 +1,12 @@
+---
+  - name: testing stat module
+    hosts: web
+    tasks:
+      - name: verifying whehter hello.txt file is available
+        stat:
+          path: /home/admin/hcl/hello.txt
+          checksum_algorithm: md5
+        register: result
+      - name: printing previous tasks's output
+        debug:
+          msg: The checksum of the file is "{{ result.stat.checksum }}"

@@ -1,0 +1,13 @@
+---
+  - name: deploying ssh server custom configuration file
+    hosts: web
+    vars:
+      ssh_port: 29
+      groups_allowed: helpdesk
+      passwords_allowed: yes
+      root_allowed: yes
+    tasks:
+      - name: deploying my_sshd_config.j2 file
+        template:
+          src: my_sshd_config.j2
+          dest: /etc/ssh/sshd_config

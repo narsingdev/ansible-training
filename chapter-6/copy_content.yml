@@ -1,0 +1,9 @@
+---
+  - name: testing copy module
+    hosts: web
+    tasks:
+      - name: adding content to hello.txt file to managed node
+        copy:
+          content: "Hello, Folks !!!\n"
+          dest: /home/admin/hcl/hello.txt
+          

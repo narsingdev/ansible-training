@@ -1,0 +1,11 @@
+---
+  - name: testing file mdoule
+    hosts: web
+    tasks:
+      - name: creating hcl directory
+        file:
+          path: /home/admin/hcl
+          state: directory
+          mode: '774'
+          owner: admin
+          group: admin

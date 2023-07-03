@@ -1,0 +1,12 @@
+---
+  - name: testing synchronize module
+    hosts: web
+    tasks:
+      - name: installing rsync pkg
+        dnf:
+          name: rsync
+          state: present
+      - name: copying bulk of files to managed node
+        synchronize:
+          src: docs
+          dest: /home/admin/hcl/

@@ -1,0 +1,8 @@
+---
+  - name: testing jinja2 template
+    hosts: web
+    tasks:
+      - name: genrating ip address and hostname using jinja2 template
+        template: 
+          src: myhosts.j2
+          dest: /etc/myoutput

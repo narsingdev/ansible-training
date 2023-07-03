@@ -1,0 +1,13 @@
+---
+  - name: testing blockinfile module
+    hosts: web
+    tasks:
+      - name: updating block of lines
+        blockinfile:
+          path: /home/admin/hcl/test.txt
+          block: |
+            Ansible is Automation Tools
+            Ansible is one of emergin technology in the automation world
+            Ansible is developed by Michael Dehaan.
+          state: present
+

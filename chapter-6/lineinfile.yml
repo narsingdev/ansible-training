@@ -1,0 +1,9 @@
+---
+  - name: testing lineinfile module
+    hosts: web
+    tasks:
+      - name: updating /home/admin/hcl/test.txt file
+        lineinfile:
+          path: /home/admin/hcl/test.txt
+          line: "Welcome to Automation with Linux\n"
+          state: present

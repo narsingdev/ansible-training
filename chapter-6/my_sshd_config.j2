@@ -1,0 +1,11 @@
+Port {{ ssh_port }}
+ListenAddress {{ ansible_facts['default_ipv4']['address'] }}
+PermitRootLogin {{ root_allowed }}
+AllowGroups {{ groups_allowed }}
+PasswordAuthentication {{ passwords_allowed }}
+
+Include /etc/ssh/sshd_config.d/*.conf
+AuthorizedKeysFile	.ssh/authorized_keys
+Subsystem	sftp	/usr/libexec/openssh/sftp-server
+
+
