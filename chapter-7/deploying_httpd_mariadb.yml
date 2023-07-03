@@ -1,0 +1,8 @@
+---
+  - name: installing and configuring httpd and mariadb server
+    hosts: web
+    tasks:
+  - name: deploying httpd server
+    import_playbook: httpd.yml
+  - name: deploying mariadb server
+    import_playbook: mariadb.yml

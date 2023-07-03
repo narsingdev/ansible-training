@@ -1,0 +1,21 @@
+---
+  - name: installing and configuirng mail services
+    hosts: db
+    tasks:
+      - name: installing postfix sendmail and dovecot pkgs
+        dnf:
+          name: "{{ item }}"
+          state: present
+        loop:
+          - postfix
+          - sendmail
+          - dovecot
+      - name: importing postfix_tasks.yml file
+        include_tasks: tasks/postfix_tasks.yml
+      - name: importing sendmail_tasks.yml file
+        include_tasks: tasks/sendmail_tasks.yml
+      - name: importing dovecot_tasks.yml file
+        include_tasks: tasks/dovecot_tasks.yml
+
+        
+

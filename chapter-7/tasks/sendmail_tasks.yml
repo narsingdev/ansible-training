@@ -1,0 +1,6 @@
+---
+  - name: start and enable sendmail
+    service:
+      name: sendmail
+      state: started
+      enabled: true

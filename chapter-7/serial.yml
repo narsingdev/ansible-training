@@ -1,0 +1,9 @@
+---
+  - name: testing rolling upgrade
+    hosts: all
+    serial: 1
+    tasks:
+      - name: upgrading httpd server
+        dnf:
+          name: httpd
+          state: latest

@@ -1,0 +1,13 @@
+---
+  - name: installing and cofiguring mariadb-server
+    hosts: web
+    tasks:
+      - name: installing mariadb-server pkg
+        dnf:
+          name: mariadb-server
+          state: present
+      - name: start and enable mariadb-server server
+        service:
+          name: mariadb
+          state: started
+          enabled: true

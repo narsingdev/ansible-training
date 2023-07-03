@@ -1,0 +1,16 @@
+---
+  - name: testing forks value
+    hosts: db
+    tasks:
+      - name: creating user01
+        user:
+          name: user01
+      - name: creating user02
+        user:
+          name: user02
+      - name: creating user03
+        user:
+          name: user03
+      - name: creating user04
+        user:
+          name: user04
